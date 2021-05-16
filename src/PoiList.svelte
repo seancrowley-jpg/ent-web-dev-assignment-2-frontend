@@ -1,5 +1,12 @@
 <script>
-    export let poiList;
+    import {onMount} from "svelte"
+    import { PoiService} from "./poi-service";
+
+    const poiService = new PoiService("http://localhost:4000")
+    let poiList;
+    onMount(async () => {
+        poiList = await poiService.getPois();
+    })
 </script>
 
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
