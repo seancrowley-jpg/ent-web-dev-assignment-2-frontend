@@ -15,4 +15,14 @@ export class PoiService {
             return [];
         }
     }
+
+    async getUsers() {
+        try {
+            const response = await fetch(this.baseUrl + "/api/users")
+            this.userList = await response.json();
+            return this.userList;
+        } catch (error) {
+            return [];
+        }
+    }
 }

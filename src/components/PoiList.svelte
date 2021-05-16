@@ -1,8 +1,7 @@
 <script>
-    import {onMount} from "svelte"
-    import { PoiService} from "./poi-service";
+    import {onMount, getContext} from "svelte"
+    const poiService = getContext("PoiService")
 
-    const poiService = new PoiService("http://localhost:4000")
     let poiList;
     onMount(async () => {
         poiList = await poiService.getPois();
