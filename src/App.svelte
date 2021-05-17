@@ -1,6 +1,7 @@
 <script>
     import {setContext} from "svelte";
     import {PoiService} from "./services/poi-service";
+    import Main from "./pages/Main.svelte"
     import Report from "./pages/Report.svelte"
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
@@ -9,6 +10,7 @@
 
 
     let routes = {
+        "/" : Main,
         "/report": Report,
     }
 </script>
