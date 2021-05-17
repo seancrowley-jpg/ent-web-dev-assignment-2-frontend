@@ -5,7 +5,12 @@ export const mainBar = [{
     icon: "fas fa-clipboard-list fa-3x",
     colour: "color:rgb(63, 122, 139)",
     link: "/#/report",
-}]
+}, {
+    title: "Logout",
+    icon: "fas fa-sign-out-alt fa-3x",
+    colour: "color:rgb(156, 70, 128)",
+    link: "/#/logout",
+},]
 
 export const navBar = writable({
     bar: [],

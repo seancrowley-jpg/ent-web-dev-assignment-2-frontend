@@ -14,6 +14,7 @@
         "/" : Main,
         "/login": Login,
         "/report": Report,
+        "/logout": Main
     }
 </script>
 <div class="uk-container">
