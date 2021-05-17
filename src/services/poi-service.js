@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export class PoiService {
     poiList = [];
     baseUrl= "";
@@ -8,7 +10,7 @@ export class PoiService {
 
     async getPois() {
         try {
-            const response = await fetch(this.baseUrl + "/api/pois")
+            const response = await axios.get(this.baseUrl + "/api/pois")
             this.poiList = await  response.json();
             return this.poiList;
         } catch (error) {
@@ -18,11 +20,20 @@ export class PoiService {
 
     async getUsers() {
         try {
-            const response = await fetch(this.baseUrl + "/api/users")
+            const response = await axios.get(this.baseUrl + "/api/users")
             this.userList = await response.json();
             return this.userList;
         } catch (error) {
             return [];
+        }
+    }
+
+    async login(email, password) {
+        try {
+            const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
+            return response.status == 200;
+        } catch (error) {
+            return false;
         }
     }
 }
