@@ -18,6 +18,22 @@ export class PoiService {
         }
     }
 
+    async addPoi(name, description, lat, lon, category) {
+        try {
+            const poi = {
+                name: name,
+                description: description,
+                lat: lat,
+                lon: lon,
+                category: category,
+            };
+            const response =  await axios.post(this.baseUrl + "/api/pois", poi);
+            return response.status == 200;
+        }   catch (error) {
+            return false;
+        }
+    }
+
     async getUsers() {
         try {
             const response = await axios.get(this.baseUrl + "/api/users")
