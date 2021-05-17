@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {mainBar, navBar, title, subTitle} from "../stores";
     import poiImg from "/src/assets/poi.png"
     import SettingsForm from "../components/SettingsForm.svelte"
@@ -9,6 +9,8 @@
     navBar.set({
         bar: mainBar
     })
+
+
 </script>
 
 <div class="uk-flex-middle uk-text-center" uk-grid>
