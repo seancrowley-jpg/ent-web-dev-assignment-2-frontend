@@ -6,7 +6,7 @@
 <div class="uk-width-2-3@m  uk-card uk-card-default uk-padding-small uk-visible@m">
     <div class="uk-grid">
         <div class="uk-width-1-6@m">
-            <a href="/"> <img src="{poiImg}" width="60" alt="img"/> </a>
+            <a href="/"> <img src="{poiImg}" width="60" alt="poi"/> </a>
         </div>
         <div class="uk-width-expand@m uk-text-left">
             <div class="title">
