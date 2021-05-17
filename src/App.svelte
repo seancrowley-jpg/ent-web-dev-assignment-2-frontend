@@ -3,6 +3,7 @@
     import {PoiService} from "./services/poi-service";
     import Main from "./pages/Main.svelte"
     import Home from "./pages/Home.svelte"
+    import Signup from "./pages/Signup.svelte"
     import Login from "./pages/Login.svelte"
     import Report from "./pages/Report.svelte"
     import Navigator from "./components/Navigator.svelte";
@@ -13,6 +14,7 @@
 
     let routes = {
         "/" : Main,
+        "/signup": Signup,
         "/login": Login,
         "/home": Home,
         "/report": Report,
