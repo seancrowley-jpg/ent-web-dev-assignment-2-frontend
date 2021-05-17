@@ -7,11 +7,18 @@
 
     setContext("PoiService", new PoiService("http://localhost:4000"));
 
+    const navBar = [{
+        title: "Report",
+        icon: "fas fa-clipboard-list fa-3x",
+        colour: "color:rgb(63, 122, 139)",
+        link: "/#/report",
+    }]
+
     let routes = {
         "/report": Report,
     }
 </script>
 <div class="uk-container">
-    <Navigator/>
+    <Navigator {navBar}/>
     <Router {routes} />
 </div>
