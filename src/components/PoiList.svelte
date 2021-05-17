@@ -26,7 +26,7 @@
                 <tr>
                     <td>{poi.name}</td>
                     <td>{poi.description}</td>
-                    <td></td>
+                    <td>{poi.user}</td>
                     <td>{poi.category}</td>
                 </tr>
             {/each}
