@@ -11,7 +11,7 @@ export class PoiService {
     async getPois() {
         try {
             const response = await axios.get(this.baseUrl + "/api/pois")
-            this.poiList = await  response.json();
+            this.poiList = await response.data;
             return this.poiList;
         } catch (error) {
             return [];
@@ -48,6 +48,7 @@ export class PoiService {
         try {
             const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
             return response.status == 200;
+
         } catch (error) {
             return false;
         }
