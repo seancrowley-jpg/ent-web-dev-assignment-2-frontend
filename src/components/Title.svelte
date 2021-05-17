@@ -1,7 +1,6 @@
 <script>
     import poiImg from "/src/assets/poi.png"
-    export let title;
-    export let subTitle;
+    import {title, subTitle} from "../stores";
 </script>
 
 <div class="uk-width-2-3@m  uk-card uk-card-default uk-padding-small uk-visible@m">
@@ -11,10 +10,10 @@
         </div>
         <div class="uk-width-expand@m uk-text-left">
             <div class="title">
-                {title}
+                {$title}
             </div>
             <div class="uk-text-muted uk-text-small">
-                {subTitle}
+                {$subTitle}
             </div>
         </div>
     </div>
