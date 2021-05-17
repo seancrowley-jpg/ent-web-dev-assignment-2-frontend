@@ -6,7 +6,7 @@
     <Title title="Donations" subTitle="Select Donations or Candidates" />
     <div>
         <ul class="uk-iconnav uk-margin-left uk-margin-right">
-            <a href="/report" class="uk-card uk-card-small uk-card-hover uk-padding-small">
+            <a href="/#/report" class="uk-card uk-card-small uk-card-hover uk-padding-small">
                 <i class="fas fa-clipboard-list fa-3x" style="color:rgb(63, 122, 139)" title="Report" pos="bottom" uk-tooltip></i>
             </a>
         </ul>
