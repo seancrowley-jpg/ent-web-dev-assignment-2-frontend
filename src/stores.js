@@ -37,3 +37,11 @@ export const welcomeBar = [
         link: "/#/login",
     },
 ];
+
+export const user = writable({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    _id: ""
+});

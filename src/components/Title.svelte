@@ -1,6 +1,6 @@
 <script>
     import poiImg from "/src/assets/poi.png"
-    import {title, subTitle} from "../stores";
+    import {title, subTitle, user} from "../stores";
 </script>
 
 <div class="uk-width-2-3@m  uk-card uk-card-default uk-padding-small uk-visible@m">
@@ -14,6 +14,14 @@
             </div>
             <div class="uk-text-muted uk-text-small">
                 {$subTitle}
+            </div>
+        </div>
+        <div class="uk-card uk-card-small uk-text-center uk-padding-remove">
+            <div>
+                <i class="fas fa-user fa-3x" style="color:rgb(95, 96, 173)" pos="bottom" uk-tooltip></i>
+            </div>
+            <div class="uk-width-expand@m uk-text-left">
+                <div class="uk-text-muted uk-text-center" style="font-size:xx-small">{$user.firstName} {$user.lastName}</div>
             </div>
         </div>
     </div>

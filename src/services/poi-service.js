@@ -1,4 +1,5 @@
 import axios from "axios";
+import {user} from "../stores";
 
 export class PoiService {
     poiList = [];
@@ -47,10 +48,21 @@ export class PoiService {
     async login(email, password) {
         try {
             const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
+            user.set(response.data)
             return response.status == 200;
-
         } catch (error) {
             return false;
         }
+    }
+
+    async logout() {
+        user.set({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            _id: ""
+        });
+        this.poiList = [];
     }
 }

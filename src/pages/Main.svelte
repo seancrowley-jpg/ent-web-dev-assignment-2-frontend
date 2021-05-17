@@ -1,12 +1,19 @@
 <script>
     import {title, subTitle, navBar, welcomeBar} from "../stores";
     import poiImg from "/src/assets/poi.png";
+    import {getContext} from "svelte";
+
+    const poiService = getContext("PoiService")
+
     title.set("Point of Interest Web App ");
     subTitle.set("Sign up or log in ");
 
     navBar.set({
         bar: welcomeBar
     });
+
+    poiService.logout();
+
 </script>
 
 <div class="uk-container uk-margin">
