@@ -11,6 +11,11 @@ export const mainBar = [{
     colour: "color:rgb(63, 122, 139)",
     link: "/#/report",
 },{
+    title: "Your Poi's",
+    icon: "fas fa-map fa-3x",
+    colour: "color:rgb(252, 186, 3)",
+    link: "/#/user-report",
+},{
     title: "Settings",
     icon: "fas fa-sliders-h fa-3x",
     colour: "color:rgb(14, 168, 160)",

@@ -22,6 +22,17 @@ export class PoiService {
         }
     }
 
+    async getUserPois(id) {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/pois/userpois/${id}`)
+            this.poiList = await response.data;
+
+            return this.poiList;
+        } catch (error) {
+            return [];
+        }
+    }
+
     async addPoi(name, description, lat, lon, category) {
         try {
             const poi = {
@@ -41,7 +52,7 @@ export class PoiService {
     async getUsers() {
         try {
             const response = await axios.get(this.baseUrl + "/api/users")
-            this.userList = await response.json();
+            this.userList = await response.data;
             return this.userList;
         } catch (error) {
             return [];

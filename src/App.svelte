@@ -6,6 +6,7 @@
     import Signup from "./pages/Signup.svelte"
     import Login from "./pages/Login.svelte"
     import Report from "./pages/Report.svelte"
+    import UserReport from "./pages/UserReport.svelte"
     import Settings from "./pages/Settings.svelte"
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
@@ -19,6 +20,7 @@
         "/login": Login,
         "/home": Home,
         "/report": Report,
+        "/user-report": UserReport,
         "/settings": Settings,
         "/logout": Main
     }
