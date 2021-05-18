@@ -7,6 +7,9 @@ export class PoiService {
 
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
+        if (localStorage.donation) {
+            axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.donation);
+        }
     }
 
     async getPois() {
@@ -48,8 +51,16 @@ export class PoiService {
     async login(email, password) {
         try {
             const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, {email, password});
-            user.set(response.data)
-            return response.status == 200;
+            axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.token;
+            if (response.data.success) {
+                user.set({
+                    email: email,
+                    token: response.data.token
+                });
+                localStorage.donation = JSON.stringify(response.data.token);
+                return true;
+            }
+            return false;
         } catch (error) {
             return false;
         }
@@ -57,13 +68,11 @@ export class PoiService {
 
     async logout() {
         user.set({
-            firstName: "",
-            lastName: "",
             email: "",
-            password: "",
-            _id: ""
+            token: ""
         });
-        this.poiList = [];
+        axios.defaults.headers.common["Authorization"] = "";
+        localStorage.donation = null;
     }
 
     async signup (firstName, lastName, email, password) {
