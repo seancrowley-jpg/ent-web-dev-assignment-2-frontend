@@ -55,7 +55,7 @@ export class PoiService {
             if (response.data.success) {
                 user.set({
                     email: email,
-                    token: response.data.token
+                    token: response.data.token,
                 });
                 localStorage.donation = JSON.stringify(response.data.token);
                 return true;
@@ -99,12 +99,14 @@ export class PoiService {
                 lastName: lastName,
                 email: email,
                 password: password,
-                _id: id
             };
             console.log(userDetails);
             const response = await axios.put(`${this.baseUrl}/api/users/${id}`, userDetails);
             const newUser = await response.data;
-            user.set(newUser);
+            user.set({
+                email: newUser.email,
+                token: newUser.token
+            });
             return true;
         } catch (error) {
             return false;
