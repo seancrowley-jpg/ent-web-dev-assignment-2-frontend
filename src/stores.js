@@ -44,9 +44,6 @@ export const welcomeBar = [
 ];
 
 export const user = writable({
-    firstName: "",
-    lastName: "",
     email: "",
-    password: "",
-    _id: ""
+    token: ""
 });
