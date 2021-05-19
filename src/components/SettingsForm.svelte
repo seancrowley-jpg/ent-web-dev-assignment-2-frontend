@@ -1,6 +1,7 @@
 <script lang="ts">
     import {getContext} from "svelte";
     import {user} from "../stores"
+    import {push} from "svelte-spa-router";
 
     let firstName = $user.firstName;
     let lastName = $user.lastName;
@@ -16,6 +17,15 @@
             message = "Settings Updated";
         } else {
             message = "Error saving settings"
+        }
+    }
+
+    async function deleteUser() {
+        let success = await poiService.deleteUser($user._id);
+        if (success) {
+            push("/");
+        } else {
+            message = "Error Deleting Account"
         }
     }
 </script>
@@ -49,4 +59,9 @@
             {message}
         </div>
     {/if}
+</form>
+<h3 class="uk-card-title uk-text-center">Delete Account: </h3>
+<p>Deleting your account will also delete all of your Poi's as well</p>
+<form on:submit|preventDefault={deleteUser}>
+    <button class="uk-button uk-button-primary uk-button-danger uk-width-1-1 uk-margin-small-bottom">Delete Account</button>
 </form>
