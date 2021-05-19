@@ -3,6 +3,7 @@ import {user} from "../stores";
 
 export class PoiService {
     poiList = [];
+    poi = {};
     baseUrl= "";
 
     constructor(baseUrl) {
@@ -28,6 +29,16 @@ export class PoiService {
             this.poiList = await response.data;
 
             return this.poiList;
+        } catch (error) {
+            return [];
+        }
+    }
+
+    async getOnePoi(id) {
+        try {
+            const response = await axios.get(`${this.baseUrl}/api/pois/${id}`)
+            this.poi = await response.data;
+            return this.poi;
         } catch (error) {
             return [];
         }
