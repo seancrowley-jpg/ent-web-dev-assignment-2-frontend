@@ -3,7 +3,7 @@
     //import {params} from "../pages/Poi.svelte";
     //const poiService = getContext("PoiService")
 
-    //let poi = {}
+    let poi = {}
     //onMount(async () => {
       //  poi = await poiService.getOnePoi(encodeURI(params.wild));
         //console.log(params);

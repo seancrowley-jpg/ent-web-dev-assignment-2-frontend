@@ -70,22 +70,16 @@ export class PoiService {
     }
     
     async editPoi(name, description, lat, lon, category, id) {
-        try{
-            const poiDetails = {
-                name: name,
-                description: description,
-                lat: lat,
-                lon: lon,
-                category: category,
-            };
-            console.log(newPoi);
-            const response = await axios.put(`${this.baseUrl}/api/pois/${id}`, poiDetails);
-            if (response) {
-                return true;
-            }
-        } catch (error) {
-            return false;
-        }
+        const poiDetails = {
+            name: name,
+            description: description,
+            lat: lat,
+            lon: lon,
+            category: category,
+        };
+        console.log("New Poi Details:")
+        console.log(poiDetails);
+        await axios.put(`${this.baseUrl}/api/pois/${id}`, poiDetails);
     }
 
     async getUsers() {
