@@ -3,16 +3,16 @@
     import ViewPoi from "../components/ViewPoi.svelte";
     import poiImg from "../assets/poi.png"
     import {navBar, mainBar, subTitle,title} from "../stores";
-    import {onMount, getContext} from "svelte"
+    import {getContext, onMount} from "svelte"
     const poiService = getContext("PoiService")
     export let params = {}
-    console.log(params)
+    //console.log(params)
 
     let poi = {}
     onMount(async () => {
         poi = await poiService.getOnePoi(encodeURI(params.wild));
         console.log(params);
-        console.log(poi);
+        //console.log(poi);
     })
 
     title.set("Point of Interest Web App");

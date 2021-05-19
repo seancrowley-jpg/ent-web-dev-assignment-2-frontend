@@ -38,9 +38,8 @@
                     <td>{poi.description}</td>
                     <td>{poi.category}</td>
                     <td><a href="/#/poi/{poi._id}"><button class="uk-button uk-button-primary uk-button-small">View</button></a></td>
-                    <td></td>
+                    <td><a href="/#/update-poi/{poi._id}"><button class="uk-button uk-button-primary uk-button-small">Edit</button></a> </td>
                     <td><button on:click={deletePOI(poi._id)} class="uk-button-danger uk-button-primary uk-button-small">Delete</button></td>
-
                 </tr>
             {/each}
         {/if}

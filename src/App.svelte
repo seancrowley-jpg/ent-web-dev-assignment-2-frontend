@@ -8,6 +8,7 @@
     import Report from "./pages/Report.svelte"
     import UserReport from "./pages/UserReport.svelte"
     import Poi from "./pages/Poi.svelte"
+    import UpdatePoi from "./pages/UpdatePoi.svelte"
     import Settings from "./pages/Settings.svelte"
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
@@ -22,6 +23,7 @@
         "/home": Home,
         "/report": Report,
         "/poi/*": Poi,
+        "/update-poi/*": UpdatePoi,
         "/user-report": UserReport,
         "/settings": Settings,
         "/logout": Main

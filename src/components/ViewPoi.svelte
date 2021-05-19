@@ -1,12 +1,14 @@
 <script>
-    import {onMount, getContext} from "svelte"
-    const poiService = getContext("PoiService")
+    //import {onMount, getContext} from "svelte"
+    //import {params} from "../pages/Poi.svelte";
+    //const poiService = getContext("PoiService")
 
-    let poi
-    onMount(async () => {
-        poi = await poiService.getOnePoi();
-        console.log(poi);
-    })
+    let poi = {}
+    //onMount(async () => {
+      //  poi = await poiService.getOnePoi(encodeURI(params.wild));
+        //console.log(params);
+        //console.log(poi);
+    //})
 </script>
 
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
