@@ -5,7 +5,7 @@
 
     let poiList;
     onMount(async () => {
-        poiList = await poiService.getUserPois($user._id);
+        poiList = await poiService.getUserPois();
     })
 </script>
 
