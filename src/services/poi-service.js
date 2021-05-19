@@ -60,6 +60,15 @@ export class PoiService {
         }
     }
 
+    async deletePoi(id) {
+        try {
+            const response = await axios.delete(`${this.baseUrl}/api/pois/${id}`);
+            return response.status == 200;
+        } catch (e) {
+            return false;
+        }
+    }
+
     async getUsers() {
         try {
             const response = await axios.get(this.baseUrl + "/api/users")
