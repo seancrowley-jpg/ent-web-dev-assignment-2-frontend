@@ -6,7 +6,15 @@
     let poiList;
     onMount(async () => {
         poiList = await poiService.getUserPois();
+
     })
+
+    async function deletePOI(id){
+        await poiService.deletePoi(id);
+        poiList = await poiService.getUserPois();
+    }
+
+
 </script>
 
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
@@ -30,6 +38,9 @@
                     <td>{poi.description}</td>
                     <td>{poi.category}</td>
                     <td><a href="/#/poi/{poi._id}"><button class="uk-button uk-button-primary uk-button-small">View</button></a></td>
+                    <td></td>
+                    <td><button on:click={deletePOI(poi._id)} class="uk-button-danger uk-button-primary uk-button-small">Delete</button></td>
+
                 </tr>
             {/each}
         {/if}
