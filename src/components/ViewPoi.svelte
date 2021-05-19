@@ -1,10 +1,12 @@
 <script>
     import {onMount, getContext} from "svelte"
+    import {params} from "../pages/Poi.svelte";
     const poiService = getContext("PoiService")
 
-    let poi
+    let poi = {}
     onMount(async () => {
-        poi = await poiService.getOnePoi();
+        poi = await poiService.getOnePoi(encodeURI(params.wild));
+        console.log(params);
         console.log(poi);
     })
 </script>
