@@ -13,7 +13,7 @@
     async function signup() {
         let success = await poiService.signup(firstName, lastName, email, password);
         if (success) {
-            push("/home")
+            push("/login")
         } else {
             errorMessage = "Error Signing Up"
         }

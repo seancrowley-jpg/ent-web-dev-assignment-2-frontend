@@ -8,8 +8,8 @@ export class PoiService {
 
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
-        if (localStorage.donation) {
-            axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.donation);
+        if (localStorage.poi) {
+            axios.defaults.headers.common["Authorization"] = "Bearer " + JSON.parse(localStorage.poi);
         }
     }
 
@@ -101,7 +101,7 @@ export class PoiService {
                     email: email,
                     token: response.data.token,
                 });
-                localStorage.donation = JSON.stringify(response.data.token);
+                localStorage.poi = JSON.stringify(response.data.token);
                 return true;
             }
             return false;
@@ -116,7 +116,7 @@ export class PoiService {
             token: ""
         });
         axios.defaults.headers.common["Authorization"] = "";
-        localStorage.donation = null;
+        localStorage.poi = null;
     }
 
     async signup (firstName, lastName, email, password) {
