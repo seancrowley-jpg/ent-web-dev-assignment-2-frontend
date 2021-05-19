@@ -7,6 +7,7 @@
     import Login from "./pages/Login.svelte"
     import Report from "./pages/Report.svelte"
     import UserReport from "./pages/UserReport.svelte"
+    import Poi from "./pages/Poi.svelte"
     import Settings from "./pages/Settings.svelte"
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
@@ -20,6 +21,7 @@
         "/login": Login,
         "/home": Home,
         "/report": Report,
+        "/poi/*": Poi,
         "/user-report": UserReport,
         "/settings": Settings,
         "/logout": Main

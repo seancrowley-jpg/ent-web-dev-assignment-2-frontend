@@ -29,6 +29,7 @@
                     <td>{poi.name}</td>
                     <td>{poi.description}</td>
                     <td>{poi.category}</td>
+                    <td><a href="/#/poi/{poi._id}"><button class="uk-button uk-button-primary uk-button-small">View</button></a></td>
                 </tr>
             {/each}
         {/if}
