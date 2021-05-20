@@ -169,10 +169,28 @@ export class PoiService {
 
     async deleteUser(id) {
         try {
-            const response = await axios.delete(`${this.baseUrl}/api/users/${id}`)
+            const response = await axios.delete(`${this.baseUrl}/api/users/${id}`);
             return response.status == 200;
         } catch (e) {
             return false;
+        }
+    }
+
+    async addImage(id, imageFile) {
+        try {
+            const response = await axios.post(`${this.baseUrl}/api/pois/${id}`, imageFile);
+            return response.status == 200;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async deleteImage(id) {
+        try {
+            const response = await axios.delete(`${this.baseUrl}/api/pois/${id}/image`);
+            return response.status == 200;
+        } catch (error){
+            return false
         }
     }
 

@@ -18,9 +18,12 @@
     let lon = 0;
     let selectedCategory = 0;
     let category = ["Long Walk", "Short Walk", "Cycle Path", "Mountain Path"];
+    //let imagefile;
     let errorMessage = "";
 
-    let poi = {}
+
+    let poi = {};
+    let files= [];
     onMount(async () => {
         poi = await poiService.getOnePoi(params.wild);
         console.log(params);
@@ -30,6 +33,18 @@
     async function updatePoi () {
         await poiService.editPoi(name, description, lat, lon, category[selectedCategory], poi._id)
         poi = await poiService.getOnePoi(params.wild);
+    }
+
+    async function addImage() {
+        let imagefile = files[0];
+        console.log(files)
+        let reader = new FileReader();
+        reader.onload = async function(e) {
+            imagefile = e.target.result;
+            let success = await poiService.addImage(params.wild, imagefile)
+        };
+        reader.readAsDataURL(imagefile);
+        console.log(imagefile)
     }
 </script>
 <div class="uk-container uk-margin">
@@ -80,6 +95,22 @@
                         </div>
                     {/if}
                 </form>
+            </div>
+            <div class="uk-card uk-card-default uk-width-xlarge uk-card-body uk-box-shadow-large">
+                <div class="uk-card uk-card-primary uk-card-body">
+                    <h3 class="uk-card-title">Image Upload</h3>
+                    <form on:submit|preventDefault={addImage} class="uk-form-stacked uk-text-left" enctype="multipart/form-data">
+                        <div class="uk-margin">
+                            <label class="uk-form-label">Select Image</label>
+                            <div class="uk-form-controls">
+                                <input bind:files type="file" >
+                            </div>
+                        </div>
+                        <p uk-margin>
+                            <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Upload</button>
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
