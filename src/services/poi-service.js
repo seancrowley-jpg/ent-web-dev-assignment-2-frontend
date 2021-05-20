@@ -82,6 +82,16 @@ export class PoiService {
         await axios.put(`${this.baseUrl}/api/pois/${id}`, poiDetails);
     }
 
+    async getWeather(id) {
+        try {
+            const weather = axios.get(`${this.baseUrl}/api/pois/${id}/weather`)
+            return weather
+        } catch (e) {
+            return {};
+        }
+
+    }
+
     async getUsers() {
         try {
             const response = await axios.get(this.baseUrl + "/api/users")

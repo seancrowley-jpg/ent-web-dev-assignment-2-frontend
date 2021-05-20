@@ -9,10 +9,14 @@
     //console.log(params)
 
     let poi = {}
+    let weather = {}
+    let report = {}
     onMount(async () => {
         poi = await poiService.getOnePoi(encodeURI(params.wild));
-        console.log(params);
-        //console.log(poi);
+        weather = await poiService.getWeather(encodeURI(params.wild))
+        report = weather.data;
+        console.log(weather);
+        console.log(report);
     })
 
     title.set("Point of Interest Web App");
@@ -45,6 +49,7 @@
                         <td>{poi.lat}</td>
                         <td>{poi.lon}</td>
                         <td>{poi.category}</td>
+                        <td>Feels Like: {report.feelsLike}°C<br> Sky: {report.clouds}</td>
                     </tr>
                     </tbody>
                 </table>
