@@ -178,7 +178,7 @@ export class PoiService {
 
     async addImage(id, imageFile) {
         try {
-            const response = await axios.post(`${this.baseUrl}/api/pois/${id}`, {imageFile});
+            const response = await axios.post(`${this.baseUrl}/api/pois/${id}`, imageFile);
             return response.status == 200;
         } catch (error) {
             return false;

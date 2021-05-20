@@ -18,7 +18,7 @@
     let lon = 0;
     let selectedCategory = 0;
     let category = ["Long Walk", "Short Walk", "Cycle Path", "Mountain Path"];
-    let imagefile;
+    //let imagefile;
     let errorMessage = "";
 
 
@@ -36,16 +36,15 @@
     }
 
     async function addImage() {
-        let ifile = files[0];
+        let imagefile = files[0];
+        console.log(files)
         let reader = new FileReader();
         reader.onload = async function(e) {
             imagefile = e.target.result;
-            console.log(imagefile);
             let success = await poiService.addImage(params.wild, imagefile)
-            console.log(success);
         };
-        console.log(ifile)
-        reader.readAsDataURL(ifile);
+        reader.readAsDataURL(imagefile);
+        console.log(imagefile)
     }
 </script>
 <div class="uk-container uk-margin">
@@ -104,7 +103,7 @@
                         <div class="uk-margin">
                             <label class="uk-form-label">Select Image</label>
                             <div class="uk-form-controls">
-                                <input bind:files type="file" class="uk-input" name="imagefile" >
+                                <input bind:files type="file" >
                             </div>
                         </div>
                         <p uk-margin>
