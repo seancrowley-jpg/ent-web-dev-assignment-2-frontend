@@ -2,7 +2,7 @@
 
     import ViewPoi from "../components/ViewPoi.svelte";
     import poiImg from "../assets/poi.png"
-    import {navBar, mainBar, subTitle,title} from "../stores";
+    import {navBar, mainBar, subTitle,title ,user} from "../stores";
     import {getContext, onMount} from "svelte"
     const poiService = getContext("PoiService")
     export let params = {}
@@ -12,15 +12,30 @@
     let weather = {};
     let report = {};
     let images = [];
+    let currentUserEmail = $user.email;
+    let userPoiCheck;
+
+    function checkUser(poi){
+        if (poi.user.email == currentUserEmail) {
+            userPoiCheck = true;
+        }
+    }
+
     onMount(async () => {
         poi = await poiService.getOnePoi(encodeURI(params.wild));
         weather = await poiService.getWeather(encodeURI(params.wild))
         report = weather.data;
         images = poi.image;
-        console.log(weather);
-        console.log(report);
-        console.log(poi);
+        checkUser(poi);
+        //console.log(userPoiCheck);
+        //console.log(poi.user.email);
+        //console.log(currentUserEmail);
+        //console.log($user.email);
+        //console.log(weather);
+        //console.log(report);
+        //console.log(poi);
     })
+
 
     title.set("Point of Interest Web App");
     subTitle.set("Point of Interest Details");
@@ -73,6 +88,9 @@
                 <div>
                     <div class="uk-card-footer">
                         <p> {image.public_id}</p>
+                        {#if userPoiCheck}
+                            <a uk-icon="icon: trash"></a>
+                            {/if}
                     </div>
                 </div>
             </div>
