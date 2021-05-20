@@ -100,7 +100,7 @@
             <div class="uk-card uk-card-default uk-width-xlarge uk-card-body uk-box-shadow-large">
                 <div class="uk-card uk-card-primary uk-card-body">
                     <h3 class="uk-card-title">Image Upload</h3>
-                    <form on:submit|preventDefault={addImage} class="uk-form-stacked uk-text-left">
+                    <form on:submit|preventDefault={addImage} class="uk-form-stacked uk-text-left" enctype="multipart/form-data">
                         <div class="uk-margin">
                             <label class="uk-form-label">Select Image</label>
                             <div class="uk-form-controls">

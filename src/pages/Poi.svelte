@@ -33,9 +33,18 @@
         //console.log($user.email);
         //console.log(weather);
         //console.log(report);
-        //console.log(poi);
+        //console.log(poi.image[0].id);
+        console.log(images);
     })
 
+    async function deleteImage(id) {
+        await poiService.deleteImage(id);
+        poi = await poiService.getOnePoi(encodeURI(params.wild));
+        weather = await poiService.getWeather(encodeURI(params.wild))
+        report = weather.data;
+        images = poi.image;
+        checkUser(poi);
+    }
 
     title.set("Point of Interest Web App");
     subTitle.set("Point of Interest Details");
@@ -89,7 +98,8 @@
                     <div class="uk-card-footer">
                         <p> {image.public_id}</p>
                         {#if userPoiCheck}
-                            <a uk-icon="icon: trash"></a>
+
+                            <td><a on:click={deleteImage(image.public_id)} uk-icon="icon: trash"></a></td>
                             {/if}
                     </div>
                 </div>

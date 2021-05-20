@@ -183,7 +183,15 @@ export class PoiService {
         } catch (error) {
             return false;
         }
+    }
 
+    async deleteImage(id) {
+        try {
+            const response = await axios.delete(`${this.baseUrl}/api/pois/${id}/image`);
+            return response.status == 200;
+        } catch (error){
+            return false
+        }
     }
 
 }
