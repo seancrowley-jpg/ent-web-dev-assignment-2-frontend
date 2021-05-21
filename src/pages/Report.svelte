@@ -7,6 +7,7 @@
     navBar.set({
         bar: mainBar
     });
+
 </script>
 <div class="uk-container uk-margin">
     <div class="uk-child-width-expand uk-flex-center uk-flex-middle uk-text-center" uk-grid>
