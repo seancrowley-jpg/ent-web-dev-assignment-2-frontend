@@ -16,6 +16,11 @@ export const mainBar = [{
     colour: "color:rgb(252, 186, 3)",
     link: "/#/user-report",
 },{
+    title: "POI Map",
+    icon: "fas fa-map-marked-alt fa-3x",
+    colour: "rgb(102, 153, 255)",
+    link: "/#/Map",
+},{
     title: "Settings",
     icon: "fas fa-sliders-h fa-3x",
     colour: "color:rgb(14, 168, 160)",

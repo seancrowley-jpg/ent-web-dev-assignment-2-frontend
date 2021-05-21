@@ -2,16 +2,19 @@
     import {getContext} from "svelte"
     const poiService = getContext("PoiService")
 
+    export let justAddedPoi;
+
     let name = "";
     let description = "";
-    let lat = 0;
-    let lon = 0;
+    export let lat = 0.0;
+    export let lon = 0.0;
     let selectedCategory = 0;
     let category = ["Long Walk", "Short Walk", "Cycle Path", "Mountain Path"];
     let errorMessage = "";
 
     async function addPoi() {
-        await poiService.addPoi(name, description, lat, lon, category[selectedCategory])
+        let poi= await poiService.addPoi(name, description,lat, lon, category[selectedCategory],)
+        if (justAddedPoi) justAddedPoi(name, description);
     }
 </script>
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
