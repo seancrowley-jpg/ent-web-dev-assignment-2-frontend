@@ -11,6 +11,7 @@
     import UpdatePoi from "./pages/UpdatePoi.svelte"
     import Map from "./pages/Map.svelte"
     import Settings from "./pages/Settings.svelte"
+    import Admin from "./pages/Admin.svelte"
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
 
@@ -27,6 +28,7 @@
         "/update-poi/*": UpdatePoi,
         "/user-report": UserReport,
         "/map": Map,
+        "/admin": Admin,
         "/settings": Settings,
         "/logout": Main
     }

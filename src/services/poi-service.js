@@ -176,6 +176,15 @@ export class PoiService {
         }
     }
 
+    async deleteAdmin(email) {
+        try {
+            const response = await axios.delete(`${this.baseUrl}/api/admin/users/${email}`);
+            return response.status == 200;
+        } catch (e) {
+            return false;
+        }
+    }
+
     async addImage(id, imageFile) {
         try {
             const response = await axios.post(`${this.baseUrl}/api/pois/${id}`, imageFile);
