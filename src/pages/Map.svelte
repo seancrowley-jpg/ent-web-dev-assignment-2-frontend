@@ -17,14 +17,31 @@
             minZoom: 7,
         };
         map = new LeafletMap("poi-map", mapConfig, 'Terrain');
+        map.addLayerGroup('All Poi');
+        map.addLayerGroup('Long Walk');
+        map.addLayerGroup('Short Walk');
+        map.addLayerGroup('Cycle Path');
+        map.addLayerGroup('Mountain Path');
         map.showZoomControl();
         map.showLayerControl();
         const pois = poiService.poiList;
         console.log(pois);
         pois.forEach(poi=>{
             const poiStr =  `${poi.name} ${poi.description}`;
-            if(poi.lat & poi.lon) {
-                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr);
+            if(poi.lat && poi.lon) {
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr, 'All Poi');
+            }
+            if(poi.category === "Long Walk"){
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr, 'Long Walk');
+            }
+            if(poi.category && poi.category === "Short Walk"){
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr, 'Short Walk');
+            }
+            if(poi.category && poi.category === "Cycle Path"){
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr, 'Cycle Path');
+            }
+            if(poi.category && poi.category === "Mountain Path"){
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr, 'Mountain Path');
             }
         });
     });
