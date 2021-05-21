@@ -2,7 +2,9 @@
     import 'leaflet/dist/leaflet.css';
     import {mainBar, navBar, subTitle, title} from "../stores"
     import {LeafletMap} from '../services/leaflet-map';
-    import {onMount} from "svelte";
+    import {getContext, onMount} from "svelte";
+
+    const poiService = getContext("PoiService")
 
     let lat = 52.160858;
     let lon = -7.152420;
@@ -17,6 +19,14 @@
         map = new LeafletMap("poi-map", mapConfig, 'Terrain');
         map.showZoomControl();
         map.showLayerControl();
+        const pois = poiService.poiList;
+        console.log(pois);
+        pois.forEach(poi=>{
+            const poiStr =  `${poi.name} ${poi.description}`;
+            if(poi.lat & poi.lon) {
+                map.addMarker({lat: poi.lat, lon: poi.lon}, poiStr);
+            }
+        });
     });
 
     title.set("Point of Interest Web App ");
