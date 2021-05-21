@@ -14,7 +14,7 @@
         const mapConfig = {
             location: {lat: lat, lon: lon},
             zoom: 8,
-            minZoom: 7,
+            minZoom: 1,
         };
         map = new LeafletMap("poi-map", mapConfig, 'Terrain');
         map.addLayerGroup('All Poi');
