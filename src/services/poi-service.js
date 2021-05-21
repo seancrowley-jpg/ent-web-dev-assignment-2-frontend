@@ -203,4 +203,14 @@ export class PoiService {
         }
     }
 
+    async addReview(id, review) {
+        try {
+            const response = await axios.post(`${this.baseUrl}/api/pois/${id}/review`, {review: review})
+            return response.status == 200;
+        } catch (error){
+            return false;
+        }
+
+    }
+
 }
