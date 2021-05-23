@@ -15,7 +15,7 @@
     import Navigator from "./components/Navigator.svelte";
     import Router from "svelte-spa-router";
 
-    setContext("PoiService", new PoiService("http://localhost:4000"));
+    setContext("PoiService", new PoiService("https://radiant-coast-86425.herokuapp.com"));
 
 
     let routes = {

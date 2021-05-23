@@ -67,13 +67,13 @@
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span class="uk-form-icon" uk-icon="icon: lat"></span>
-                            <input bind:value={lat}  class="uk-input uk-form-large" type="number" step=".01" name="lat" placeholder="{poi.lat}">
+                            <input bind:value={lat}  class="uk-input uk-form-large" type="number" step=".000001" name="lat" placeholder="{poi.lat}">
                         </div>
                     </div>
                     <div class="uk-margin">
                         <div class="uk-inline uk-width-1-1">
                             <span class="uk-form-icon" uk-icon="icon: lon"></span>
-                            <input bind:value={lon} class="uk-input uk-form-large" type="number" step=".01" name="lon" placeholder="{poi.lon}">
+                            <input bind:value={lon} class="uk-input uk-form-large" type="number" step=".000001" name="lon" placeholder="{poi.lon}">
                         </div>
                     </div>
                     <div class="uk-margin">

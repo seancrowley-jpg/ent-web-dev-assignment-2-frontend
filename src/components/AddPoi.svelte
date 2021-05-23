@@ -36,13 +36,13 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text">Enter Latitude of Walk</label>
                     <div class="uk-form-controls">
-                        <input bind:value={lat} class="uk-input"  type="number" step=".01" name="lat" placeholder="Latitude" />
+                        <input bind:value={lat} class="uk-input"  type="number" step=".000001" name="lat" placeholder="Latitude" />
                     </div>
                 </div>
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-stacked-text">Enter Longitude of Walk</label>
                     <div class="uk-form-controls">
-                        <input bind:value={lon} class="uk-input"  type="number" step=".01" name="lon" placeholder="Longitude" />
+                        <input bind:value={lon} class="uk-input"  type="number" step=".000001" name="lon" placeholder="Longitude" />
                     </div>
                 </div>
                 <div class="uk-margin">
